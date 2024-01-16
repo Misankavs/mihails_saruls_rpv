@@ -1,0 +1,112 @@
+  
+<!DOCTYPE HTML>
+  <html>
+
+  <head>
+    <title>Tūre pa Sahāras tuksnesi</title>
+    <meta name="description" content="Tīmekļa vietnes apraksts" />
+    <meta name="keywords" content="tīmekļa vietnes atslēgvārdi, tīmekļa vietnes atslēgvārdi" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="logo">
+          <div id="logo_text">
+            <!-- class="logo_colour", allows you to change the colour of the text -->
+            <h1><a href="index.html">Sahara<span class="logo_colour">Mihails_Saruls</span></a></h1>
+            <h2>Vienkārši. Mūsdienīgi. Lēti.</h2>
+          </div>
+        </div>
+        <div id="menubar">
+          <ul id="menu">
+            <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+            <li><a href="index.html">Sākums</a></li>
+            <li><a href="examples.html">Piemēri</a></li>
+            <li><a href="page.html">Tūra apraksts</a></li>
+            <li class="selected"><a href="another_page.html">Calculators</a></li>
+            <li><a href="contact.html">Sazinieties ar mums</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content_header"></div>
+      <div id="site_content">
+        <div id="banner"></div>
+        <div id="sidebar_container">
+          <div class="sidebar">
+            <div class="sidebar_top"></div>
+            <div class="sidebar_item">
+              <!-- insert your sidebar items here -->
+              <h3>Vasaras Laiks Ēģiptē</h3>
+              <h4>Svaigs Tīmekļa vietnes dizains</h4>
+              <h5>1. februāris, 2014</h5>
+              <p>Šajā vasaras sezonā Ēģiptē baudiet siltumu un sauli, izbaudot svaigo dizainu mūsu tīmekļa vietnē. Dalieties ar mums savās domās un izskatieties apkārt.<br /><a href="#">Lasīt vairāk</a></p>
+            </div>
+            <div class="sidebar_base"></div>
+          </div>
+          <div class="sidebar">
+            <div class="sidebar_top"></div>
+            <div class="sidebar_item">
+              <h3>Mekelēt</h3>
+              <form method="post" action="#" id="search_form">
+                <p>
+                  <input class="search" type="text" name="search_field" value="Ievadiet atslēgvārdus....." />
+                  <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="style/search.png" alt="Meklēt" title="Meklēt" />
+                </p>
+              </form>
+            </div>
+            <div class="sidebar_base"></div>
+          </div>
+        </div>
+        <div id="content">
+          <h2> Tūres izmaksas</h2>
+          <p id="izvade1">... </p>
+          <h2> Papildu izmaksas</h2>
+          <p id="izvade2">... </p>
+          <h2> Gala izmaksas ar atlaidi</h2>
+          <p id="izvade3">... </p>
+          <br>
+          <div>
+            <label for="celotajuSkaits">Cilvēku skaits:</label>
+            <input type="number" id="celotajuSkaits" name="celotajuSkaits">
+          </div>
+          <div>
+            <label for="atlauzuKods">Atlaižu kods:</label>
+            <input type="text" id="atlauzuKods" name="atlauzuKods">
+          </div>
+          <div>
+            <button type="button" onclick="aprēķiniIzmaksas()">Aprēķini</button>
+          </div>
+
+          <script>
+            function aprēķiniIzmaksas() {
+              const klientuSkaits = parseInt(document.getElementById("celotajuSkaits").value);
+              const atlauzuKods = document.getElementById("atlauzuKods").value;
+
+              let pamatIzmaksa = klientuSkaits * 600;
+
+              if (atlauzuKods === "Vasara2024") {
+                pamatIzmaksa = pamatIzmaksa * 0.9;
+              }
+
+              let papilduIzmaksas = 0;
+              const papilduPakalpojumi = confirm("Vai vēlaties papildu pakalpojumus?");
+              if (papilduPakalpojumi) {
+                papilduIzmaksas = klientuSkaits * 50;
+              }
+
+              let galaIzmaksas = pamatIzmaksa + papilduIzmaksas;
+              if (galaIzmaksas > 1000) {
+                galaIzmaksas = galaIzmaksas * 0.95;
+              }
+
+              document.getElementById("izvade1").innerHTML = "Tūres pamatizmaksas: " + pamatIzmaksa + " eiro";
+              document.getElementById("izvade2").innerHTML = "Papildu izmaksas par pakalpojumiem: " + papilduIzmaksas + " eiro";
+              document.getElementById("izvade3").innerHTML = "Gala izmaksas ar atlaidi: " + galaIzmaksas + " eiro";
+            }
+          </script>
+        </div>
+        </body>
+        </html>
